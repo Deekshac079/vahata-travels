@@ -40,21 +40,22 @@ const Enquire = () => {
   const handleSubmit = async (e)  => {
 
     e.preventDefault();
-    try {
-      const res = await fetch("https://vahata-git-main-deekshas-projects-dc02b16d.vercel.app/api/send-form", {
+    e.preventDefault();
+  try {
+    const res = await fetch("https://your-project-name.vercel.app/api/send-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       if (res.ok) {
-        console.log("Form submitted successfully");
+        console.log("✅ Form submitted successfully");
       } else {
-        console.error("Error submitting form");
+        console.error("❌ Failed:", res.status);
       }
-       } catch (err) {
-      toast.error("Network error");
-       }
-    
+    } catch (err) {
+      console.error("Error:", err);
+    }
     };
 
   const progressClass = step === 3 ? 'w-full bg-green-500' : step === 2 ? 'w-2/3 bg-[#2F86A6]' : 'w-1/3 bg-blue-400';

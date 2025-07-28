@@ -1,9 +1,9 @@
+// api/send-form.js
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  // ✅ CORS FIX
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") {
@@ -11,45 +11,30 @@ export default async function handler(req, res) {
   }
 
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  try {
-    const { organization_name, contact_person, phone, email, city } = req.body;
+  const data = req.body;
 
-    // ✅ Nodemailer transporter (use Gmail or custom SMTP)
-    let transporter = nodemailer.createTransport({
-      service: "Gmail",
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "Gmail", // or your SMTP service
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.EMAIL_USER, // set in Vercel env variables
+        pass: process.env.EMAIL_PASS, // set in Vercel env variables
       },
     });
 
     await transporter.sendMail({
-      from: `"Enquiry Form" <${process.env.EMAIL_USER}>`,
-      to: "deekshav079@gmail.com", // where you want to receive emails
-      subject: "New Enquiry Form Submission",
-      text: `
-        Organization: ${organization_name}
-        Contact: ${contact_person}
-        Phone: ${phone}
-        Email: ${email}
-        City: ${city}
-      `,
-      html: `
-        <h3>New Enquiry Received</h3>
-        <p><strong>Organization:</strong> ${organization_name}</p>
-        <p><strong>Contact Person:</strong> ${contact_person}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>City:</strong> ${city}</p>
-      `,
+      from: process.env.EMAIL_USER,
+      to: "deekshav079@gmail.com",
+      subject: "New Enquiry Submission",
+      text: JSON.stringify(data, null, 2),
     });
 
-    res.status(200).json({ message: "Email sent successfully!" });
-  } catch (error) {
-    console.error(error);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Email error:", err);
     res.status(500).json({ error: "Failed to send email" });
   }
 }
