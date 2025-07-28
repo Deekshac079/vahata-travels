@@ -1,0 +1,23 @@
+
+@media screen and (max-width: 768px) {
+  #root
+  {
+  min-width: min-content;
+  }
+  /* Hide mobile scrollbars cleanly */
+/* .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+} 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;   
+} */
+
+}
+/* .header-section-top{
+    background-color: #ffffff14;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 9999;
+} */

@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add google fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap'); */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Merriweather', serif;
+}
+.Enquiry-Form .react-datepicker-wrapper{
+    width: 100%;
+}
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}
+.gallery-main-box{
+    overflow: hidden;
+    /* padding: 6.25rem 0; */
+    margin: 4rem 0;
+    z-index: 1;
+}
+.gallery-scroll-item{
+    /* transform: rotate(6deg); */
+    overflow: hidden;
+    height: 300px;
+    margin: 0 -12.5rem;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.company-details.about-us{
+  background-image: url(/public/gallery/bg-image-3.png);
+}
+.Enquiry-Form {
+  position: relative;
+  z-index: 1;
+}
+.Enquiry-Form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(/public/gallery/bg-image-10.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Set your desired opacity */
+  z-index: -1;
+  pointer-events: none;
+}
+@keyframes treeSway {
+  0% {
+      transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+}
+  50% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes parachuteFloat3D {
+  0% {
+      transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  20% {
+    transform: translate3d(-8px, -8px, 5px) rotateX(5deg) rotateY(-5deg);
+}
+  40% {
+    transform: translate3d(8px, -4px, -5px) rotateX(-5deg) rotateY(5deg);
+  }
+  60% {
+    transform: translate3d(-6px, 6px, 3px) rotateX(3deg) rotateY(-3deg);
+  }
+  80% {
+    transform: translate3d(6px, 4px, -3px) rotateX(-3deg) rotateY(3deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+}
+.des-icon-1, .des-icon-2 {
+    position: absolute;
+    z-index: 1;
+}
+/* .des-icon-2 {
+    
+} */
+.animate-tree {
+    transform-origin: bottom right;
+    animation: treeSway 3s infinite ease-in-out;
+}
+.animate-parachute {
+    transform-origin: center top;
+    animation: parachuteFloat3D 5s infinite ease-in-out;
+}
+
+
+
+.filmstrip {
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.filmstrip::before,
+.filmstrip::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 90%;
+  top: 5%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #777 0,
+    #777 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  border-radius: 4px;
+}
+
+.filmstrip::before {
+  left: 0;
+}
+
+.filmstrip::after {
+  right: 0;
+}
+.our-service-list{
+    font-family: "Rubik", Sans-serif;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #0070B6;
+}
+.our-service-box-item{
+  bottom: 0.6rem;
+}
+.contact-Us-Main-section .contact-us-enquiry-form section.Enquiry-Form::before {
+  content: none;
+}
+.contact-Us-Main-section .contact-us-enquiry-form section.Enquiry-Form{
+  background: none !important;
+  width: 100%;
+}
+.contact-Us-Main-section .contact-us-enquiry-form section.Enquiry-Form img{
+  display: none !important;
+}

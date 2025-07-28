@@ -1,0 +1,185 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import emailjs from 'emailjs-com';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect  } from 'react';
+// import 'tailwindcss/tailwind.css';
+import './App.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+// const sendEmail = (e) => {
+//   e.preventDefault();
+// emailjs.send("","template_61n34pr");
+// template_61n34pr
+
+//   emailjs.sendForm('service_zic7ss9', 'template_61n34pr', e.target, 'PEb5zheE-VFG_sOXOZmYJ')
+//     .then(() => alert('Enquiry submitted successfully!'))
+//     .catch(() => alert('Something went wrong. Please try again.'));
+
+//   e.target.reset();
+// };
+// const sendEmail = (e) => {
+//   e.preventDefault();
+
+//   emailjs.sendForm('service_zic7ss9', 'template_61n34pr', e.target, 'PEb5zheE-VFG_sOXOZmYJ')
+//     .then(() => {
+//         toast.success('Enquiry submitted successfully!');
+//     })
+//     .catch(() => {
+//         toast.error('Something went wrong. Please try again.');
+//     });
+
+//   e.target.reset();
+// };
+
+const Enquire = () => {
+  const [step, setStep] = useState(1);
+  // const [formData, setFormData] = useState(() => {
+  //   const saved = localStorage.getItem('enquiryData');
+  //   return saved ? JSON.parse(saved) : {};
+  // });
+  const [formData, setFormData] = useState({
+    org: '',
+    contact: '',
+    phone: '',
+    email: '',
+    city: '',
+    tripType: [],
+    students: '',
+    grade: '',
+    tripDate: '',           // ✅ Include this
+    requirements: ''
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // existing code (e.g., sending to backend or email)
+    console.log("Form submitted with data:", formData); // <-- This logs the data
+    // console.log(formData.tripDate?.toLocaleDateString());
+      const formattedData = {
+        ...formData,
+        tripDate: formData.tripDate
+          ? formData.tripDate.toISOString().split("T")[0] // "2025-07-16"
+          : null,
+      };
+
+      console.log("Submitting:", formattedData);
+
+    // Optional: Show a toast or confirmation
+    toast.success("Form submitted successfully!");
+  };
+  const [date, setDate] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('enquiryData', JSON.stringify(formData));
+  }, [formData]);
+
+  const next = () => setStep((s) => s + 1);
+  const prev = () => setStep((s) => s - 1);
+  const edit = (targetStep) => setStep(targetStep);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (name === "tripDate") return;
+    if (type === 'checkbox') {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: [...(prev[name] || []), value],
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+  //   formData.dates = date?.toLocaleDateString();
+
+  //   emailjs.send('service_zic7ss9', 'template_61n34pr', formData, 'PEb5zheE-VFG_sOXOZmYJ')
+  //     .then(() => {
+  //       toast.success('Enquiry submitted successfully!');
+  //       setStep(1);
+  //       setFormData({});
+  //       setDate(null);
+  //       localStorage.removeItem('enquiryData');
+  //     })
+  //     .catch(() => toast.error('Something went wrong. Please try again.'));
+  // };
+
+  const progressClass = step === 3 ? 'w-full bg-green-500' : step === 2 ? 'w-2/3 bg-blue-500' : 'w-1/3 bg-blue-400';
+
+  return (
+    <section data-aos="fade-up" className="Enquiry-Form bg-gradient-to-tr from-gray-100 to-white py-16 px-4 sm:px-8">
+      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-xl p-8 sm:p-10 border border-blue-100">
+        <h2 className="text-3xl font-extrabold text-blue-700 text-center mb-6">Enquire Now</h2>
+
+        {/* Progress Bar */}
+        <div className="mb-6 h-2 bg-gray-200 rounded-full">
+          <div className={`h-2 rounded-full transition-all duration-500 ${progressClass}`}></div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5 overflow-hidden">
+          <AnimatePresence mode="wait">
+            {step === 1 && (
+              <motion.div key="step1" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.3 }} className="space-y-4">
+                <input type="text" name="org" placeholder="School/Organization Name" required onChange={handleChange} value={formData.org || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                <input type="text" name="contact" placeholder="Contact Person Name" required onChange={handleChange} value={formData.contact || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                <input type="text" name="phone" placeholder="Phone Number (Mobile & WhatsApp)" required onChange={handleChange} value={formData.phone || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                <input type="email" name="email" placeholder="Email Address" required onChange={handleChange} value={formData.email || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                <input type="text" name="city" placeholder="City / Location" required onChange={handleChange} value={formData.city || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+              </motion.div>
+            )}
+
+            {step === 2 && (
+              <motion.fieldset key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} className="space-y-4">
+                <legend className="font-semibold text-blue-700 mb-2">Preferred Trip Type:</legend>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {['Educational Tour', 'Adventure Camp', 'Day Picnic', 'Customized Trip'].map((type) => (
+                    <label key={type} className="inline-flex items-center">
+                      <input type="checkbox" name="tripType" value={type} onChange={handleChange} className="mr-2" /> {type}
+                    </label>
+                  ))}
+                </div>
+                <input type="number" name="students" placeholder="No. of Students" onChange={handleChange} value={formData.students || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                <input type="text" name="grade" placeholder="Grade/Class Range (e.g., Class 6–10)" onChange={handleChange} value={formData.grade || ''} className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" />
+                {/* <DatePicker selected={date} onChange={(d) => setDate(d)} placeholderText="01/01/2025" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400" /> */}
+                <DatePicker name="tripDate"  selected={formData.tripDate || null}  onChange={(date) =>    setFormData((prev) => ({      ...prev,      tripDate: date,    }))  }  placeholderText="01/01/2025"  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"/>
+                {/* <p className="text-sm text-gray-500 mt-1">  Selected Date: {formData.tripDate ? new Date(formData.tripDate).toLocaleDateString() : "01/01/2025"}</p> */}
+                <textarea name="requirements" placeholder="Special Requirements (if any)" onChange={handleChange} value={formData.requirements || ''} className="w-full p-3 border border-gray-300 rounded-md h-24 focus:ring-2 focus:ring-blue-400"></textarea>
+              </motion.fieldset>
+            )}
+
+            {step === 3 && (
+              <motion.div key="step3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }} className="space-y-3 text-gray-800">
+                <h3 className="text-xl font-bold text-blue-700 mb-4">Review Your Details</h3>
+                {/* {Object.entries({ ...formData, dates: date?.toLocaleDateString() || '' }).map(([key, value], i) => ( */}
+                {Object.entries({ ...formData, tripDate: formData.tripDate ? new Date(formData.tripDate).toLocaleDateString() : '' }).map(([key, value], i) => (
+                  <div key={i} className="flex justify-between items-center bg-gray-50 p-4 rounded border">
+                    <div>
+                      <strong className="capitalize block text-sm text-gray-500">{key.replace(/([A-Z])/g, ' $1')}</strong>
+                      <p className="text-base font-medium text-gray-900">{Array.isArray(value) ? value.join(', ') : value}</p>
+                    </div>
+                    <button type="button" onClick={() => edit(key === 'org' ? 1 : 2)} className="text-sm text-blue-700 hover:underline">Edit</button>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="flex justify-between mt-6">
+            {step > 1 && <button type="button" onClick={prev} className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-5 rounded">Back</button>}
+            {step < 3 && <button type="button" onClick={next} className="bg-blue-700 text-white py-2 px-5 rounded hover:bg-blue-800">Next</button>}
+            {step === 3 && <button type="submit" className="bg-green-600 text-white py-2 px-6 rounded hover:bg-green-700">Submit</button>}
+          </div>
+        </form>
+        <ToastContainer position="top-center" autoClose={3000} />
+      </div>
+    </section>
+  );
+};
+
+export default Enquire;
