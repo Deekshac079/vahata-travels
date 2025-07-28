@@ -1,6 +1,5 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import emailjs from "emailjs-com";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect  } from 'react';
 // import 'tailwindcss/tailwind.css';
@@ -17,24 +16,8 @@ const Enquire = () => {
   const prev = () => setStep((s) => s - 1);
   const edit = (targetStep) => setStep(targetStep);
 
-  // const [formData, setFormData] = useState(() => {
-  //   const saved = localStorage.getItem('enquiryData');
-  //   return saved ? JSON.parse(saved) : {};
-  // });
-  // const [formData, setFormData] = useState({
-  //   organization_name: '',
-  //   contact_person: '',
-  //   phone: '',
-  //   email: '',
-  //   city: '',
-  //   tripType: [],
-  //   students: '',
-  //   grade_class: '',
-  //   tripDate: '',           // ✅ Include this
-  //   requirements: ''
-  // });
   
-  const [date, setDate] = useState(null);
+  // const [date, setDate] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('enquiryData', JSON.stringify(formData));
@@ -53,61 +36,26 @@ const Enquire = () => {
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
   }; 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e)  => {
+
     e.preventDefault();
-    emailjs.send(
-      "service_a500329",
-      "template_c9b7f7j",
-      formData,
-      "vkn0Ji1uZsBk2j1Uq"
-    ).then(
-      (result) => {
-        console.log("Success:", result.text);
-        console.log(result.text);
-      },
-      (error) => {
-        console.error("Error:", error.text);
-        console.error(error.text);
+    try {
+      const res = await fetch("https://vahata-git-main-deekshas-projects-dc02b16d.vercel.app/api/send-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        console.log("Form submitted successfully");
+      } else {
+        console.error("Error submitting form");
       }
-    );
-
-    // existing code (e.g., sending to backend or email)
-    // console.log("Form submitted with data:", formData); // <-- This logs the data
-    // console.log(formData.tripDate?.toLocaleDateString());
-      // const formattedData = {
-      //   ...formData,
-      //   tripDate: formData.tripDate
-      //     ? formData.tripDate.toISOString().split("T")[0] // "2025-07-16"
-      //     : null,
-      // };
-
-      // console.log("Submitting:", formattedData);
-      // setIsSubmitted(true);
-
-    // Optional: Show a toast or confirmation
-    // alert("Form submitted successfully!");
-    // toast.success("Form submitted successfully!");
-  };
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   formData.dates = date?.toLocaleDateString();
-
-  //   emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY')
-  //     .then(() => {
-  //       toast.success('Enquiry submitted successfully!');
-  //       setStep(1);
-  //       setFormData({});
-  //       setDate(null);
-  //       localStorage.removeItem('enquiryData');
-  //     })
-  //     .catch(() => toast.error('Something went wrong. Please try again.'));
-  // };
+       } catch (err) {
+      toast.error("Network error");
+       }
+    
+    };
 
   const progressClass = step === 3 ? 'w-full bg-green-500' : step === 2 ? 'w-2/3 bg-[#2F86A6]' : 'w-1/3 bg-blue-400';
 
