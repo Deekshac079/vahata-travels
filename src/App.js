@@ -41,7 +41,7 @@ const App = () => {
   <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<><Hero /><CompanyDetails /><WhyVahata /><GalleryScroll /><ProgramWeOffer /><Enquire /></>} />
+        <Route path="/" element={<><Hero /><CompanyDetails /><WhyVahata /><GalleryScroll /><Journeys /><ProgramWeOffer /><Enquire /></>} />
         <Route path="/about" element={<About />} />
         <Route path="/journeys" element={<Journeys />} />
         <Route path="/ourservice" element={<OurService />} />

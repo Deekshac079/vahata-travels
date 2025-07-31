@@ -40,8 +40,7 @@ const Contact = () => (
         <div>
           <h2 className="text-4xl font-bold mb-4">Get In Touch With Us</h2>
           <p className="mb-6">
-            <span className="font-bold text-[#2f86a6]">ADDRESS:</span> TRIPIX WQ 966 MUNICH EXPRESS 70 GERMANY, PARK
-            LAN, TX 7859
+            <span className="font-bold text-[#2f86a6]">ADDRESS:</span><span> 671, T-16, River Height, Rajnagar Ext, Ghaziabad, Pin code - 201017</span>
           </p>
 
           <div className="flex items-center mb-5">

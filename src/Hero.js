@@ -1,22 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import img1 from "./gallery/7.jpg";
-// import img2 from "./gallery/16.jpg";
-// import img3 from "./gallery/13.jpg";
-// import img4 from "./gallery/12.jpg";
-// import img5 from "./gallery/10.jpg";
 
 const slides = [
-//   {
-//     image: "/gallery/7.jpg",
-//     title: "Where Travel Becomes Learning",
-//     description: "Inspiring school journeys that educate and excite.",
-//   },
-//   {
-//     image: "/gallery/16.jpg",
-//     title: "Explore Iconic Destinations",
-//     description: "Educational tours to heritage, history, and nature.",
-//   },
   {
     image: "/gallery/13.jpg",
     title: "Make Friends. Make Memories.",

@@ -35,7 +35,7 @@ body {
 .gallery-main-box{
     overflow: hidden;
     /* padding: 6.25rem 0; */
-    margin: 4rem 0;
+    margin: 4rem 0 0 0;
     z-index: 1;
 }
 .gallery-scroll-item{
@@ -168,4 +168,11 @@ body::-webkit-scrollbar {
 }
 .contact-Us-Main-section .contact-us-enquiry-form section.Enquiry-Form img{
   display: none !important;
+}
+.no-scrollbar-journey{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar-journey::-webkit-scrollbar {
+  display: none;
 }

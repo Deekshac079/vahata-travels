@@ -2,8 +2,8 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import footerBg from './assets/IMG-20250719-WA0031.jpg';
-import footLogo from './assets/vahata-logo.png';
+// import footerBg from '/gallery/6.jpg';
+// import footLogo from './assets/vahata-logo.png';
 
 const Footer = () => {
   useEffect(() => {
@@ -26,7 +26,8 @@ const Footer = () => {
         <div
             className="absolute bottom-0 inset-0 bg-cover bg-fixed bg-center z-0"
             style={{
-            backgroundImage: `url(${footerBg})`,
+            backgroundImage: `url("/gallery/6.jpg")`,
+            // backgroundImage: `url(${footerBg})`,
             filter: "brightness(0.4)",
             }}
         ></div>
@@ -62,7 +63,7 @@ const Footer = () => {
             {/* Section 3: Contact & Social */}
             <div className="text-center  bg-opacity-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
-            <p className="text-sm mb-1 text-blue-100">📍 123 Edu Lane, Travel City, India</p>
+            <p className="text-sm mb-1 text-blue-100">📍 671, T-16, River Height, Rajnagar Ext, Ghaziabad, Pin code - 201017</p>
             <p className="text-sm mb-1 text-blue-100">📞 +91 7982715254</p>
             <p className="text-sm mb-4 text-blue-100">✉️ Info@vahata.co.in</p>
             <div className="flex justify-center space-x-4">

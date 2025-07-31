@@ -18,18 +18,18 @@ const CompanyDetails = () => (
       {/* We believe travel is the best teacher, helping students learn by exploring the world around them.</p> */}
 
       {/* Cards */}
-      <div className="lg:mt-10 grid grid-cols-1 sm:w-[70%] sm:my-[2rem] sm:mx-[auto] lg:grid-cols-3 gap-6">
+      <div className="lg:mt-10 grid grid-cols-1 sm:w-[70%] sm:my-[2rem] sm:mx-[auto] lg:grid-cols-3 lg:w-[100%] gap-6">
         <div className="bg-[#2f86a61a] p-6 rounded shadow">
-          <h3 className="text-xl font-semibold text-[#2F86A6] mb-2">10+ Years Experience</h3>
-          <p className="text-sm sm:text-base">Organizing educational and safe student trips since 2014.</p>
+          <h3 className="text-xl font-semibold text-[#2F86A6] mb-2">Expert-Led Team</h3>
+          <p className="text-sm sm:text-base">Led by professionals with years of expertise in organizing school trips.</p>
         </div>
         <div className="bg-[#2f86a61a] p-6 rounded shadow">
-          <h3 className="text-lg sm:text-xl font-semibold text-[#2F86A6] mb-2">Certified Guides</h3>
-          <p className="text-sm sm:text-base">Professionally trained and background-verified tour staff.</p>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#2F86A6] mb-2">Trained Tour Staff</h3>
+          <p className="text-sm sm:text-base">Professionally trained and background-verified staff focused on student safety and engagement</p>
         </div>
         <div className="bg-[#2f86a61a] p-6 rounded shadow">
-          <h3 className="text-lg sm:text-xl font-semibold text-[#2F86A6] mb-2">Trusted by Schools</h3>
-          <p  className="text-sm sm:text-base">Over 500+ schools trust VAHATA for safe and impactful journeys.</p>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#2F86A6] mb-2">Partnering with Schools</h3>
+          <p  className="text-sm sm:text-base">Building trusted partnerships with schools for safe and impactful journeys.</p>
         </div>
       </div>
     </div>

@@ -36,8 +36,8 @@ const About = () => {
           />
         </div> */}
       </div>
-      <div className="second-section w-[80%] m-auto  p-6 ">
-        <div className="bg-white py-16 px-6 md:px-20">
+      <div className="w-[100vw] second-section md:w-[80%] m-auto p-5 md:p-6 ">
+        <div className="bg-white py-8 md:py-16 px-6 md:px-20">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left Content */}
             <div className="lg:w-1/2">
@@ -78,7 +78,7 @@ const About = () => {
 
             {/* Right Content (Image with Yellow Circle and Icons) */}
             <div className="relative lg:w-1/2 flex justify-center items-center">
-              <div className="absolute w-[450px] h-[450px] bg-yellow-400 rounded-full -z-10" />
+              <div className="absolute w-[450px] h-[450px]  rounded-full -z-10" />
               <img
                 src="/gallery/travel.png"
                 alt="Travelers"
@@ -88,7 +88,7 @@ const About = () => {
           </div>
 
           {/* Stats Section */}
-          <div className="mt-16 bg-white shadow-md rounded-xl p-6 grid grid-cols-3 gap-6 text-center">
+          {/* <div className="mt-16 bg-white shadow-md rounded-xl p-6 grid grid-cols-3 gap-6 text-center">
             <div>
               <p className="text-teal-600 text-3xl font-bold">10</p>
               <p className="text-gray-600">Years Experiences</p>
@@ -101,11 +101,11 @@ const About = () => {
               <p className="text-teal-600 text-3xl font-bold">100+</p>
               <p className="text-gray-600">Happy Customers</p>
             </div>
-            {/* <div>
+            <div>
               <p className="text-teal-600 text-3xl font-bold">320</p>
               <p className="text-gray-600">Award Winning</p>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
         </div>
       </div>
       <GalleryScroll className="gallery-main-box1" />

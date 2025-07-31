@@ -72,13 +72,13 @@ const ServiceCard = ({ service, total  }) => {
         borderClass = 'rounded-tl-lg rounded-bl-lg rounded-tr-none rounded-br-none';
     }
   return (
-  <div className={` flex items-start flex-row even:flex-row-reverse `}>
-    <div className={` ${borderClass}   border border-[1px] border-[#2f86a6] text-[#2f86a6] p-12 rounded-lg relative `}>
-      <h3 className="text-3xl font-bold mb-6">{service.title}</h3>
-      <p className="text-2xl mb-3">{service.desc}</p>
+  <div className={` flex items-start flex-row even:flex-row-reverse items-center`}>
+    <div className={` ${borderClass}   border border-[1px] border-[#2f86a6] text-[#2f86a6] p-2 md:p-12 rounded-lg relative `}>
+      <h3 className="text-xl md:text-3xl font-bold mb-2 md:mb-6">{service.title}</h3>
+      <p className="text-md md:text-2xl mb-3">{service.desc}</p>
       <a href="#" className="text-[#2f86a6] text-sm font-semibold hover:underline">Contact Us →</a>
     </div>
-    <div className="text-[10.6rem] mx-[1rem] font-semibold capitalize text-transparent stroke-[2px] text-stroke-black our-service-list">
+    <div className="md:text-[10.6rem] text-[6rem] md:mx-[1rem] mx-[10px] font-semibold capitalize text-transparent stroke-[2px] text-stroke-black our-service-list">
       {service.id}
     </div>
   </div>
@@ -88,8 +88,8 @@ const ServiceCard = ({ service, total  }) => {
 
 const OurService = () => {
   return (
-    <section className=" bg-gradient-to-br from-white to-[#2f86a6]  OurService-container">
-        <div className="OurService-first-section">
+    <section className=" bg-gradient-to-br from-white to-[#2f86a6]  OurService-container ">
+        <div className="OurService-first-section w-[100vw]">
             {/* Hero Section */}
             <div className="relative h-[70vh] flex flex-col items-center justify-center text-center">
             <img
@@ -121,11 +121,11 @@ const OurService = () => {
             />
             </div> */}
         </div>
-        <div className="OurService-second-section sm:w-[100%] md:w-[80%] m-auto p-6">
-            <div className="py-16 px-4">
+        <div className="OurService-second-section sm:w-[100%] md:w-[80%] m-auto p-6 w-[100vw]">
+            <div className="py-6 md:py-16 px-4">
                 <div className="text-center mb-10">
                     <h4 className="uppercase text-[rgb(47,134,166)] text-2xl font-semibold pb-6">What We Provide</h4>
-                    <h2 className="text-4xl md:text-4xl font-bold mt-2">Get A Solution For Your Business</h2>
+                    <h2 className="text-2xl md:text-4xl md:text-4xl font-bold mt-2">Get A Solution For Your Business</h2>
                 </div>
                 <div className="flex flex-col max-w-4xl mx-auto">
                     {services.map(service => (

@@ -81,8 +81,8 @@ const CarouselWithInfo = () => {
       <div data-aos="fade-up" className="flex flex-row bg-white  w-[100vw]">
         {/* Static Blue Left Box */}
         <div className="bg-[#2f86a6] text-white w-full w-[40%] md:w-1/4 flex flex-col justify-center items-center p-6 text-center">
-          <p className="italic text-xl mb-2">Your travel agency</p>
-          <h2 className="text-3xl md:text-3xl font-bold">» WHY VAHATA?</h2>
+          <p className="italic text-sm md:text-xl mb-2">Your travel agency</p>
+          <h2 className="text-xl md:text-3xl font-bold">» WHY VAHATA?</h2>
         </div>
 
         {/* Right Carousel */}
@@ -92,8 +92,8 @@ const CarouselWithInfo = () => {
               <div key={idx} className="px-4 border-r border-gray-300">
                 <div className="flex flex-col items-center text-center  p-4 h-full">
                   {item.icon}
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
-                  <p className="text-lg text-gray-700 mt-1">{item.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-semibold">{item.title}</h3>
+                  <p className="text-sm md:text-lg text-gray-700 mt-1">{item.desc}</p>
                 </div>
               </div>
             ))}
