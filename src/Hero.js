@@ -51,7 +51,7 @@ const navigate = useNavigate();
               <button className="bg-white text-blue-800 font-semibold px-6 py-2 rounded hover:bg-blue-100">
                 Explore Trips
               </button>
-              <button onClick={() => navigate("/enquire")} className="bg-yellow-400 text-black font-semibold px-6 py-2 rounded hover:bg-yellow-300">
+              <button onClick={() => navigate("/enquiry")} className="bg-yellow-400 text-black font-semibold px-6 py-2 rounded hover:bg-yellow-300">
                 Enquire Now
               </button>
             </div>
