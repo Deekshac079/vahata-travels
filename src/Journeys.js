@@ -188,7 +188,7 @@ const goPrev = () => {
 
         <div className="text-center mt-8">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-block bg-[#2f86a6] text-white px-8 py-4 rounded-full shadow-lg hover:bg-[#256b8c] hover:shadow-2xl transition-all duration-300 text-lg font-medium transform hover:scale-105"
           >
             Contact Us to Plan a Trip
