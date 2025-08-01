@@ -24,6 +24,7 @@ import Gallery from './Gallery';
 import ProgramWeOffer from './ProgramWeOffer';
 import OurService from './OurService';
 import EnquiryLink from './EnquiryLink';
+import ScrollToTop from "./ScrollToTop";
 // console.log("React:", React);
 // console.log("useEffect:", useEffect);
 
@@ -39,7 +40,9 @@ const App = () => {
   }, []);
   return(
   <Router>
+    <>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<><Hero /><CompanyDetails /><WhyVahata /><GalleryScroll /><Journeys /><ProgramWeOffer /><Enquire /></>} />
         <Route path="/about" element={<About />} />
@@ -51,6 +54,7 @@ const App = () => {
       </Routes>
       <Footer />
      {/* <ToastContainer position="top-center" autoClose={3000} /> */}
+    </>
   </Router>
   );
 };
