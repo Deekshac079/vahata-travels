@@ -47,11 +47,11 @@ const Footer = () => {
 
             {/* Section 2: Quick Links (Inline) */}
             <div className="flex justify-center flex-wrap gap-6 text-sm font-bold bg-opacity-50 p-6 rounded-lg">
-            {["About", "Privacy Policy", "Contact",  "Gallery"].map(
+            {["About", "Privacy Policy", "Terms & Condition", "Contact",  "Gallery"].map(
                 (label, index) => (
                 <a
                     key={index}
-                    href={`/${label.toLowerCase().replace(" ", "")}`}
+                    href={`/${label.toLowerCase().replace(/&/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").replace(/--+/g, "-")}`}
                     className="text-lg hover:underline underline-offset-4 transition duration-300 hover:text-yellow-400"
                 >
                     {label}
@@ -67,9 +67,9 @@ const Footer = () => {
             <p className="text-sm mb-1 text-blue-100">📞 +91 7982715254</p>
             <p className="text-sm mb-4 text-blue-100">✉️ Info@vahata.co.in</p>
             <div className="flex justify-center space-x-4">
-                <a href="#"><FaFacebookF className="hover:text-yellow-400 text-lg transition duration-300" /></a>
-                <a href="#"><FaTwitter className="hover:text-yellow-400 text-lg transition duration-300" /></a>
-                <a href="#"><FaInstagram className="hover:text-yellow-400 text-lg transition duration-300" /></a>
+                <a href="#" target="_blank"><FaFacebookF className="hover:text-yellow-400 text-lg transition duration-300" /></a>
+                <a href="#" target="_blank"><FaTwitter className="hover:text-yellow-400 text-lg transition duration-300" /></a>
+                <a href="#" target="_blank"><FaInstagram className="hover:text-yellow-400 text-lg transition duration-300" /></a>
             </div>
             </div>
 

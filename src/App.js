@@ -25,6 +25,8 @@ import ProgramWeOffer from './ProgramWeOffer';
 import OurService from './OurService';
 import EnquiryLink from './EnquiryLink';
 import ScrollToTop from "./ScrollToTop";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsAndConditions from "./TermsAndConditions";
 // console.log("React:", React);
 // console.log("useEffect:", useEffect);
 
@@ -50,6 +52,8 @@ const App = () => {
         <Route path="/ourservice" element={<OurService />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-condition" element={<TermsAndConditions />} />
         <Route path="/enquiry" element={<EnquiryLink />} />
       </Routes>
       <Footer />
