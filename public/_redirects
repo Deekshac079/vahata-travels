@@ -1,5 +1,5 @@
-https://vahata.co.in/*     https://www.vahata.co.in/:splat     301!
-http://vahata.co.in/*      https://www.vahata.co.in/:splat     301!
-http://www.vahata.co.in/*  https://www.vahata.co.in/:splat     301!
-/*    /index.html   200
+https://vahata.co.in/*     https://www.vahata.co.in/:splat  301!
+http://vahata.co.in/*      https://www.vahata.co.in/:splat  301!
+http://www.vahata.co.in/*  https://www.vahata.co.in/:splat  301!
 
+/* /index.html  200
