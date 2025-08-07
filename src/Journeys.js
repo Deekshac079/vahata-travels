@@ -26,7 +26,7 @@ const himachalJourneys = [
   {
     title: "Ranthambore",
     duration: "2 Days / 3 Nights",
-    tag: "Adventure",
+    tag: "Wildlife Program",
     icon: <Mountain className="w-5 h-5 text-blue-600" />,
     image: "./gallery/ranthambore.jpg",
   },
@@ -40,7 +40,7 @@ const himachalJourneys = [
   {
     title: "Jim Corbett",
     duration: "2 Days / 3 Nights",
-    tag: "Educational",
+    tag: "Wildlife Program",
     icon: <GraduationCap className="w-5 h-5 text-green-600" />,
     image: "./gallery/jim-corbett.jpg",
   },
@@ -100,6 +100,8 @@ const goPrev = () => {
                             ? "bg-blue-100 text-blue-700"
                             : journey.tag === "Cultural"
                             ? "bg-yellow-100 text-yellow-800"
+                            : journey.tag === "Wildlife Program"
+                            ? "bg-pink-100 text-pink-700"
                             : "bg-green-100 text-green-700"
                         }`}
                     >
