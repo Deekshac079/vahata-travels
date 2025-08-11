@@ -11,12 +11,13 @@
     <meta name="description" content="VAHATA Travel App" />
     <script>
       (function() {
-          var redirects = {
-              "/old-url": "/new-url",
-          };
-          var path = window.location.pathname;
-          if (redirects[path]) {
-              window.location.replace(redirects[path] + "?t=" + Date.now());
+          if (window.location.hostname === "vahata.co.in") {
+              var newUrl = window.location.protocol + "//www.vahata.co.in" + window.location.pathname + window.location.search + window.location.hash;
+              if (!window.location.search.includes("t=")) {
+                  var sep = newUrl.includes("?") ? "&" : "?";
+                  newUrl += sep + "t=" + Date.now();
+              }
+              window.location.replace(newUrl);
           }
       })();
     </script>
