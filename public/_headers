@@ -1,0 +1,17 @@
+# ------------------------------------------
+# Prevent redirect caching for root domain
+# ------------------------------------------
+https://vahata.co.in/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+http://vahata.co.in/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+http://www.vahata.co.in/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
